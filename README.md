@@ -21,6 +21,7 @@ If you have an existing `fly.toml` in your repo, this action will copy it with a
 | `postgres` | Optional name of an existing Postgres cluster to `flyctl postgres attach` to.                                                                                                                            |
 | `update`   | Whether or not to update this Fly app when the PR is updated. Default `true`.                                                                                                                            |
 | `args`   | Pass additional args for deploy command on fly                                                                                                                            |
+| `secrets`   | Secrets to be set on the app, remember that does come from **fly secrets**. Separate multiple secrets with a space, i.e., `FIRST_SECRET=${{ secrets.FIRST_SECRET }} SECOND_SECRET=${{ secrets.SECOND_SECRET }}`                                                     |
 
 ## Required Secrets
 
