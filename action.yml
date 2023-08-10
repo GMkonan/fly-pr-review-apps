@@ -1,6 +1,6 @@
-name: "PR Review Apps on fly.io"
+name: "Custom Fork of Preview Apps on fly.io"
 description: "Deploy temporary apps from pull requests on Fly.io"
-author: Fly
+author: GMkonan
 branding:
   icon: "upload-cloud"
   color: "purple"
