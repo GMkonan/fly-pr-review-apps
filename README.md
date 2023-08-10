@@ -1,5 +1,7 @@
 # PR Review Apps on Fly.io
 
+This is a fork of the main [fly-pr-review-apps](https://github.com/superfly/fly-pr-review-apps)
+
 This GitHub action wraps the Fly.io CLI to automatically deploy pull requests to [fly.io](http://fly.io) for review. These are useful for testing changes on a branch without having to setup explicit staging environments.
 
 This action will create, deploy, and destroy Fly apps. Just set an Action Secret for `FLY_API_TOKEN`.
@@ -18,6 +20,7 @@ If you have an existing `fly.toml` in your repo, this action will copy it with a
 | `path`     | Path to run the `flyctl` commands from. Useful if you have an existing `fly.toml` in a subdirectory.                                                                                                     |
 | `postgres` | Optional name of an existing Postgres cluster to `flyctl postgres attach` to.                                                                                                                            |
 | `update`   | Whether or not to update this Fly app when the PR is updated. Default `true`.                                                                                                                            |
+| `args`   | Pass additional args for deploy command on fly                                                                                                                            |
 
 ## Required Secrets
 
