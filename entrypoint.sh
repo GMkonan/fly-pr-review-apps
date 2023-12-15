@@ -40,7 +40,7 @@ echo "Contents of config $config file: " && cat "$config"
 # Deploy the Fly app, creating it first if needed.
 if ! flyctl status --app "$app"; then
   cp "$config" "$config.bak"
-  flyctl launch --no-deploy --copy-config --name "$app" --image "$image" --region "$region" --org "$org"
+  flyctl launch --no-deploy --copy-config --name "$app" --image "$image" --region "$region" --org "$org" --vm-cpu-kind shared --vm-cpus 2 --vm-memory "4096"
   cp "$config.bak" "$config"
   if [ -n "$INPUT_SECRETS" ]; then
     echo $INPUT_SECRETS | tr " " "\n" | flyctl secrets import --app "$app"
