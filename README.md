@@ -10,18 +10,19 @@ If you have an existing `fly.toml` in your repo, this action will copy it with a
 
 ## Inputs
 
-| name       | description                                                                                                                                                                                              |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `name`     | The name of the Fly app. Alternatively, set the env `FLY_APP`. For safety, must include the PR number. Example: `myapp-pr-${{ github.event.number }}`. Defaults to `pr-{number}-{repo_org}-{repo_name}`. |
-| `image`    | Optional pre-existing Docker image to use                                                                                                                                                                |
-| `config`   | Optional path to a custom Fly toml config. Config path should be relative to `path` parameter, if specified.                                                                                             |
-| `region`   | Which Fly region to run the app in. Alternatively, set the env `FLY_REGION`. Defaults to `iad`.                                                                                                          |
-| `org`      | Which Fly organization to launch the app under. Alternatively, set the env `FLY_ORG`. Defaults to `personal`.                                                                                            |
-| `path`     | Path to run the `flyctl` commands from. Useful if you have an existing `fly.toml` in a subdirectory.                                                                                                     |
-| `postgres` | Optional name of an existing Postgres cluster to `flyctl postgres attach` to.                                                                                                                            |
-| `update`   | Whether or not to update this Fly app when the PR is updated. Default `true`.                                                                                                                            |
-| `args`   | Pass additional args for deploy command on fly                                                                                                                            |
-| `secrets`   | Secrets to be set on the app, remember that does come from **fly secrets**. Separate multiple secrets with a space, i.e., `FIRST_SECRET=${{ secrets.FIRST_SECRET }} SECOND_SECRET=${{ secrets.SECOND_SECRET }}`                                                     |
+| name         | description                                                                                                                                                                                                     |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`       | The name of the Fly app. Alternatively, set the env `FLY_APP`. For safety, must include the PR number. Example: `myapp-pr-${{ github.event.number }}`. Defaults to `pr-{number}-{repo_org}-{repo_name}`.        |
+| `image`      | Optional pre-existing Docker image to use                                                                                                                                                                       |
+| `config`     | Optional path to a custom Fly toml config. Config path should be relative to `path` parameter, if specified.                                                                                                    |
+| `region`     | Which Fly region to run the app in. Alternatively, set the env `FLY_REGION`. Defaults to `iad`.                                                                                                                 |
+| `org`        | Which Fly organization to launch the app under. Alternatively, set the env `FLY_ORG`. Defaults to `personal`.                                                                                                   |
+| `path`       | Path to run the `flyctl` commands from. Useful if you have an existing `fly.toml` in a subdirectory.                                                                                                            |
+| `postgres`   | Optional name of an existing Postgres cluster to `flyctl postgres attach` to.                                                                                                                                   |
+| `update`     | Whether or not to update this Fly app when the PR is updated. Default `true`.                                                                                                                                   |
+| `args`       | Pass additional args for deploy command on fly                                                                                                                                                                  |
+| `secrets`    | Secrets to be set on the app, remember that does come from **fly secrets**. Separate multiple secrets with a space, i.e., `FIRST_SECRET=${{ secrets.FIRST_SECRET }} SECOND_SECRET=${{ secrets.SECOND_SECRET }}` |
+| `dockerfile` | Pass optional dockerfile to launch app                                                                                                                                                                          |
 
 ## Required Secrets
 

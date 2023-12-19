@@ -29,3 +29,5 @@ inputs:
     description: Secrets to be set on the app. Separate multiple secrets with a space
   args:
     description: Pass additional args for fly deploy command
+  dockerfile:
+    description: Optional directly dockerfile path to launch app

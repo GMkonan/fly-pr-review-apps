@@ -24,6 +24,7 @@ org="${INPUT_ORG:-${FLY_ORG:-personal}}"
 image="$INPUT_IMAGE"
 config="$INPUT_CONFIG"
 args="$INPUT_ARGS"
+dockerfile="$dockerfile"
 
 if ! echo "$app" | grep "$PR_NUMBER"; then
   echo "For safety, this action requires the app's name to contain the PR number."
@@ -40,7 +41,7 @@ echo "Contents of config $config file: " && cat "$config"
 # Deploy the Fly app, creating it first if needed.
 if ! flyctl status --app "$app"; then
   cp "$config" "$config.bak"
-  flyctl launch --no-deploy --copy-config --name "$app" --image "$image" --region "$region" --org "$org" --vm-cpu-kind shared --vm-cpus 2 --vm-memory "4096"
+  flyctl launch --no-deploy --copy-config --name "$app" --image "$image" --region "$region" --org "$org" --dockerfile "$dockerfile" # --vm-cpu-kind shared --vm-cpus 2 --vm-memory "4096"
   cp "$config.bak" "$config"
   if [ -n "$INPUT_SECRETS" ]; then
     echo $INPUT_SECRETS | tr " " "\n" | flyctl secrets import --app "$app"
